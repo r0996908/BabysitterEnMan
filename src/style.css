@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #f0f3ed;
+  background: #101510;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.scene {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 58%, rgb(42 89 48 / 18%), transparent 44%),
+    #101510;
+}
+
+.caption {
+  position: absolute;
+  z-index: 1;
+  top: clamp(2rem, 8vh, 5rem);
+  left: clamp(1.5rem, 8vw, 8rem);
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: #8bad8e;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+}
+
+.hint {
+  margin: 1rem 0 0;
+  color: #9ba59a;
+  font-size: 0.95rem;
+}
+
+#canvas-container {
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+}
+
+#canvas-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .caption {
+    top: 3rem;
+    left: 1.5rem;
+  }
+
+  #canvas-container {
+    min-height: 420px;
+  }
+}
