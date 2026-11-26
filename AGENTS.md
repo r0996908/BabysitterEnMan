@@ -4,6 +4,7 @@ Info aan AI geven via hier!
 
 - use conventional commit messages.
 - keep commit msgs concise and meaningfull..
+- important dont commit before i gave review and approval.
 
 ## shaders syntax
 

@@ -9,6 +9,7 @@ if (!(container instanceof HTMLElement)) {
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#101510');
+scene.fog = new THREE.FogExp2(scene.background, 0.025);
 
 const camera = new THREE.PerspectiveCamera(
   40,
@@ -17,7 +18,7 @@ const camera = new THREE.PerspectiveCamera(
   100,
 );
 camera.position.set(3.5, 2.8, 5);
-camera.lookAt(0, 0, 0);
+camera.lookAt(-5.25, -0.85, -20);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -37,6 +38,17 @@ const fillLight = new THREE.DirectionalLight('#9dffb0', 1.2);
 fillLight.position.set(-4, 1, -3);
 scene.add(fillLight);
 
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(200, 200),
+  new THREE.MeshStandardMaterial({
+    color: '#397a47',
+    roughness: 1,
+  }),
+);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -0.85;
+scene.add(ground);
+
 const cube = new THREE.Mesh(
   new THREE.BoxGeometry(1.7, 1.7, 1.7),
   new THREE.MeshStandardMaterial({
@@ -45,6 +57,7 @@ const cube = new THREE.Mesh(
     metalness: 0.05,
   }),
 );
+cube.position.set(0, 0.65, -5);
 scene.add(cube);
 
 const clock = new THREE.Clock();
